@@ -1,5 +1,7 @@
 import json
 import csv
+#Part 1
+
 filename='precipitation.json'
 # load file as dictionary
 with open(filename, encoding= 'utf8') as file:
@@ -29,3 +31,16 @@ print(list_monthly_precipation)
 # create and save in JSON
 with open ('MontlyPrecipation.json', 'w') as f: 
     json.dump ( list_monthly_precipation , f , indent =4 , sort_keys = True ) 
+
+#Part 2
+sum_precipation=sum(list_monthly_precipation)# Sum precipation over whole year
+
+#create list of 12 values of sum precipation
+list_percentual_precipation=[]
+for i in list_monthly_precipation:
+    monthly_percentual=i/sum_precipation*100
+    list_percentual_precipation.append(monthly_percentual)
+
+print(list_percentual_precipation)
+
+#Part3
